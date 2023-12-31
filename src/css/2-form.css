@@ -11,6 +11,7 @@ button {
   width: 100px;
   font-family: Montserrat;
 }
+
 .feedback-form {
   display: flex;
   flex-direction: column;
@@ -28,11 +29,13 @@ button {
 input {
   height: 40px;
   border-radius: 4px;
+  padding: 0 10px;
 }
 
 textarea {
   height: 80px;
   border-radius: 4px;
+  padding: 10px;
 }
 
 input:hover,
@@ -55,4 +58,5 @@ button {
 
 button:hover {
   background-color: rgba(108, 140, 255, 1);
+  cursor: pointer;
 }
