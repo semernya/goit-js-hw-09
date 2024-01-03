@@ -18,12 +18,15 @@ form.addEventListener('submit', onSubmitForm);
 //   JSON.stringify(testObj)
 // );
 
-    // if (localStorage.length != 0) {
-    //     const savedObj = JSON.parse(localStorage.getItem('test-obj'));
-    //     // console.log(savedObj);
-    //     input.value = savedObj.email;
-    //     textarea.value = savedObj.message;
-    // }
+checkLocalStorageForKeys('test-obj');
+
+function checkLocalStorageForKeys(key) {
+  if (localStorage.length !== 0) {
+    const savedObj = JSON.parse(localStorage.getItem(key));
+    input.value = savedObj.email;
+    textarea.value = savedObj.message;
+  } 
+}
 
 function onInputForm(event) {
   event.preventDefault();
