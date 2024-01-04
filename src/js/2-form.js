@@ -6,26 +6,17 @@ const obj = {
   email: '',
   message: '',
 };
-
-// const testObj = { email: 'email', message: 'message' };
-
 form.addEventListener('input', onInputForm);
 form.addEventListener('submit', onSubmitForm);
 
-// console.log(obj.email);
-// localStorage.setItem(
-//   'test-obj',
-//   JSON.stringify(testObj)
-// );
-
-checkLocalStorageForKeys('test-obj');
+checkLocalStorageForKeys('feedback-form-state');
 
 function checkLocalStorageForKeys(key) {
-  if (localStorage.length !== 0) {
-    const savedObj = JSON.parse(localStorage.getItem(key));
-    input.value = savedObj.email;
-    textarea.value = savedObj.message;
-  } 
+  const savedObj = JSON.parse(localStorage.getItem(key));
+  if (savedObj) {
+    input.value = savedObj.email || '';
+    textarea.value = savedObj.message || '';
+  }
 }
 
 function onInputForm(event) {
@@ -37,7 +28,6 @@ function onInputForm(event) {
 function onSubmitForm(event) {
   event.preventDefault();
   console.log(obj);
-  input.value = '';
-  textarea.value = '';
+  form.reset();
   localStorage.removeItem(key);
 }
